@@ -1,0 +1,5 @@
+openFPGA tutorials is a collection of code samples and resources to learn openFPGA development.
+
+This the 05_BasicAssets core which displays a picture while playing a wav file and allowing the user to move a square on screen.
+
+More information at https://codeberg.org/DidierMalenfant/openFPGA-tutorials

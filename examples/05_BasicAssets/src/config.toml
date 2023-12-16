@@ -1,0 +1,78 @@
+#
+# Copyright (c) 2023-present Didier Malenfant
+#
+# This file is part of openFPGA-Tutorials.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#
+
+[Platform]
+name = "05 BasicAssets"
+image = "../../assets/platform-image.png"
+short_name = "fpgatut05"
+category = "Tutorials"
+description = "Part of the openFPGA tutorials collection of code samples."
+info = "assets/info.txt"
+
+[Build]
+version = "0.0.1"
+
+[Author]
+name = "dm"
+icon = "../../assets/core-author-icon.png"
+url = "https://codeberg.org/DidierMalenfant/openFPGA-tutorials"
+
+[Hardware]
+video_width = 320
+video_height = 288
+
+[Variables]
+    [Variables.1]
+    name = "Screen Border"
+    type = "checkbox"
+    persistent = true
+    address = "0x50000000"
+    default = true
+    value_on = 1
+    mask = "0xFFFF0000"
+
+[Controllers]
+    [Controllers.1]
+    key_mapping = [ [ "Purple Square", "A" ],
+                    [ "Green Square", "B" ],
+                    [ "Replay Audio", "X" ] ]
+
+[Files]
+    [Files.1]
+    name = "Background"
+    required = true
+    parameters = [ "user-reloadable", "core-specific" ]
+    extensions = [ "bin" ]
+    required_size = 184320
+    address = "0x00000000"
+    include_files = [ "assets/images/ex_image_1.bin", "assets/images/ex_image_2.bin", "assets/images/ex_image_3.bin" ]
+
+    [Files.99]
+    name = "Audio"
+    required = true
+    parameters = [ "user-reloadable", "core-specific" ]
+    extensions = [ "wav" ]
+    maximum_size = "0x3C00000"
+    address = "0x00400000"
+    include_files = [ "assets/audio/ex_audio_1.wav", "assets/audio/ex_audio_2.wav" ]

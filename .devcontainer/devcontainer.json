@@ -1,0 +1,34 @@
+{
+    "name": "Analog Pocket Dev",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "mounts": [
+        "type=bind,source=/media/${localEnv:USER},target=/media/vscode",
+        // "type=bind,source=/Volumes/POCKET,target=/media/vscode/POCKET"
+    ],
+    "runArgs": [],
+    "remoteUser": "vscode",
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "editor.formatOnSave": true
+            },
+            "extensions": []
+        }
+    },
+    "features": {
+        "common": {
+            "username": "vscode",
+            "uid": "automatic",
+            "gid": "automatic",
+            "installZsh": true,
+            "installOhMyZsh": false,
+            "upgradePackages": false,
+            "nonFreePackages": false
+        }
+    }
+}

@@ -1,0 +1,7 @@
+.DS_Store
+_build
+.sconsign.dblite
+.docker
+
+cyclonev-23.1std.0.991.qdz
+QuartusLiteSetup-23.1std.0.991-linux.run
