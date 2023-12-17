@@ -27,9 +27,6 @@ import pfDevTools
 # -- We need pf-dev-tools version 1.x.x but at least this version.
 pfDevTools.requires('1.0.12')
 
-env = pfDevTools.SConsEnvironment(
-    PF_CORE_TEMPLATE_REPO_URL="github.com/turuturu/core-template",
-    PF_CORE_TEMPLATE_REPO_TAG="v1.3.0-t",
-)
+env = pfDevTools.SConsEnvironment(PF_CORE_TEMPLATE_REPO_TAG='v0.0.2_basic_assets_for_openFPGATutorials')
 
 env.OpenFPGACore('src/config.toml')
