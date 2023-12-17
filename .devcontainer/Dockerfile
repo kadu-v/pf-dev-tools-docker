@@ -29,7 +29,7 @@ RUN	apt-get autoremove -y \
     && rm -rf /var/lib/apt/lists/* 
 
 # Add instalation scripts to an image
-ADD patches/qenv.sh .
+ADD ./diff/diff.patch .
 ADD ./download.sh .
 RUN chmod u+x ./download.sh && ./download.sh
 
@@ -39,7 +39,7 @@ RUN chmod u+x ./download.sh && ./download.sh
 # --installdir /opt/intelFPGA: Set the installation directory
 RUN chmod a+x ./QuartusLiteSetup-23.1std.0.991-linux.run \
     && ./QuartusLiteSetup-23.1std.0.991-linux.run --mode unattended --accept_eula 1 --installdir /opt/intelFPGA
-RUN patch /opt/intelFPGA/quartus/adm/qenv.sh ./diff/diff.patch 
+RUN patch /opt/intelFPGA/quartus/adm/qenv.sh ./diff.patch 
 ENV PATH $PATH:/opt/intelFPGA/quartus/bin
 ENV LD_PRELOAD "/usr/lib/x86_64-linux-gnu/libstdc++.so.6  /usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4"
 
