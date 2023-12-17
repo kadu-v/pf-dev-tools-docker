@@ -4,8 +4,8 @@
         "dockerfile": "Dockerfile"
     },
     "mounts": [
-        "type=bind,source=/media/${localEnv:USER},target=/media/vscode",
-        // "type=bind,source=/Volumes/POCKET,target=/media/vscode/POCKET"
+        // "type=bind,source=/media/${localEnv:USER},target=/media/vscode",
+        "type=bind,source=/Volumes,target=/media/vscode"
     ],
     "runArgs": [],
     "remoteUser": "vscode",
@@ -21,7 +21,7 @@
         }
     },
     "features": {
-        "common": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
             "username": "vscode",
             "uid": "automatic",
             "gid": "automatic",

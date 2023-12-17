@@ -1,0 +1,24 @@
+--- /opt/intelFPGA/quartus/adm/qenv.sh	2023-11-30 04:58:11.000000000 +0000
++++ ./diff/qenv.sh	2023-12-17 00:23:23.762750431 +0000
+@@ -93,21 +93,6 @@ if test `uname -m` = "x86_64" ; then
+ 	export QUARTUS_BIT_TYPE=64
+ fi
+ 
+-# We don't support processors without SSE extensions (e.g. Pentium II and older CPUs).
+-cpumodel=`grep 'model name' /proc/cpuinfo | sed -e's/model name.*: //g' | uniq`
+-export cpumodel="$cpumodel"
+-grep sse /proc/cpuinfo > /dev/null 2>&1
+-if test $? != 0 ; then
+-	echo ""
+-	echo "The Quartus II software is optimized for the Intel Pentium III processor"
+-	echo "and newer processors.  The required extensions were not found on:"
+-	echo "'$cpumodel'"
+-	echo ""
+-	echo "The Quartus II software will not function properly on this processor model."
+-	echo "Terminating..."
+-	export QENV_STATUS=-1
+-fi
+-
+ ##### Determine what bitness executables we should use
+ 
+ QBINDIR32=$QUARTUS_ROOTDIR/$QUARTUS_PLATFORM
