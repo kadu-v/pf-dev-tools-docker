@@ -21,6 +21,8 @@ RUN apt-get update && \
     python3-pip \
     wget \
     locales \
+    patch \
+    git \
     libtcmalloc-minimal4
 
 # Clean Up
